@@ -13,6 +13,6 @@ logoFile="assets/raccoon/icon.png"
 [[dependencies.raccoon]]
     modId="minecraft"
     type="required"
-    versionRange="[1.20.4,1.21)"
+    versionRange="[1.20.4,)"
     ordering="NONE"
     side="BOTH"

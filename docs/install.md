@@ -7,7 +7,7 @@ This guide provides practical instructions to install and use the **Minecraft Ra
 ### Prerequisites
 
 To maximize gameplay performance, compatibility, and ease of use:
-- **Minecraft Version:** `1.20.4` (or `1.20.x`).
+- **Minecraft Version:** `1.20.4` or above (`>=1.20.4`).
 - **Mod Loader:** **Fabric Loader** (`>=0.15.0`) with **Fabric API**, or **NeoForge** (with compatibility layer / Sinytra Connector for Fabric mods).
 - **Java Runtime:** `Java 17` or newer.
 
