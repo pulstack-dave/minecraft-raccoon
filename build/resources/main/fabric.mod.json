@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "raccoon",
+  "version": "1.0.0",
+  "name": "Minecraft Raccoon",
+  "description": "Adds adorable raccoons to Minecraft! Tameable, trainable like a wolf, hatches from eggs, stands up, sits down, walks on all 4s, and hunts prey.",
+  "authors": [
+    "Junie"
+  ],
+  "contact": {
+    "homepage": "https://github.com/raccoon/minecraft-raccoon"
+  },
+  "license": "MIT",
+  "icon": "assets/raccoon/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.raccoon.RaccoonMod"
+    ],
+    "client": [
+      "com.raccoon.client.RaccoonClientMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": ">=1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
