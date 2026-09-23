@@ -65,9 +65,18 @@ You can craft a Raccoon Spawn Egg in Survival Mode using a shapeless crafting re
 
 ---
 
-### Taming, Training, and Poses (Wolf-Style)
+### Troubleshooting
 
-Raccoons feature custom AI, wolf-style training mechanics, custom sounds, and dynamic 3D rendering with 3 distinct poses:
+1. **Egg not showing up in Creative Spawn Eggs tab or search:**
+   - **Fabric:** Ensure `fabric-api.jar` is in your `.minecraft/mods` directory. Fabric API is required for registering creative tab entries and entity attributes.
+   - **NeoForge:** If running on NeoForge (e.g. Enhanced MC / NeoForge modloader), ensure you have **Sinytra Connector** and **Forgified Fabric API** installed in your `.minecraft/mods` folder so Fabric mod entrypoints and registries execute properly.
+2. **Crafting Recipe doesn't craft the egg:**
+   - Verify all 4 ingredients in a Crafting Table: `1x Egg`, `1x Sweet Berries`, `1x Bread`, and `1x Raw Cod` (or `1x Raw Salmon`).
+   - If the recipe still doesn't craft, check that the mod initialized properly (and didn't skip initialization due to missing Fabric API / Sinytra Connector).
+
+---
+
+### Taming, Training, and Poses (Wolf-Style)
 
 1. **Standing on All 4s (Walking / Exploring):**
    - Wild and standing raccoons roam around, sniff containers, and hunt prey (chickens, rabbits).

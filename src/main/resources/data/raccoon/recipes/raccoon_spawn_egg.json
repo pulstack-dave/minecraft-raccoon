@@ -11,9 +11,14 @@
     {
       "item": "minecraft:bread"
     },
-    {
-      "item": "minecraft:cod"
-    }
+    [
+      {
+        "item": "minecraft:cod"
+      },
+      {
+        "item": "minecraft:salmon"
+      }
+    ]
   ],
   "result": {
     "item": "raccoon:raccoon_spawn_egg",
