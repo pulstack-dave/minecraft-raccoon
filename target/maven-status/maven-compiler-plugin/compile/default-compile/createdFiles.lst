@@ -1,0 +1,7 @@
+com/raccoon/command/RaccoonCommand.class
+com/raccoon/listener/RaccoonListener.class
+com/raccoon/entity/RaccoonEgg.class
+com/raccoon/config/RaccoonConfig.class
+com/raccoon/entity/RaccoonManager.class
+com/raccoon/RaccoonPlugin.class
+com/raccoon/ai/RaccoonAITask.class

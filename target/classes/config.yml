@@ -1,0 +1,99 @@
+# ================================================================= #
+#                Minecraft Raccoon Plugin Configuration              #
+# ================================================================= #
+
+# Custom Raccoon Spawn Egg settings
+egg:
+  display-name: "&6&lRaccoon Spawn Egg 🦝"
+  lore:
+    - "&7Right-click on a block to hatch a Raccoon!"
+    - "&7Or throw this egg to spawn a baby raccoon."
+    - "&eFriendly to humans, eats any other animal! ✨"
+  craftable: true
+
+# Raccoon characteristics & life cycle
+raccoon:
+  name-baby: "&eBaby Raccoon 🦝"
+  name-adult: "&6Raccoon 🦝"
+  custom-name-visible: true
+
+  # Time in seconds for a baby raccoon to naturally grow into an adult (300 seconds = 5 minutes)
+  growth-time-seconds: 300
+
+  # Seconds subtracted from remaining growth time when fed by a player
+  growth-reduction-per-feed-seconds: 25
+
+  # Seconds subtracted from remaining growth time when the raccoon hunts down an animal
+  growth-reduction-per-kill-seconds: 60
+
+  # Health attributes (1 heart = 2 HP)
+  baby-max-health: 10.0
+  adult-max-health: 20.0
+
+  # Attack damage dealt to animal prey
+  baby-damage: 2.0
+  adult-damage: 5.0
+
+  # Movement speed multipliers (base = 1.0)
+  baby-speed: 1.25
+  adult-speed: 1.15
+
+  # Hunting range in blocks
+  hunt-radius: 16.0
+
+  # AI check interval in ticks (20 ticks = 1 second)
+  hunt-interval-ticks: 20
+
+  # Raccoons are NEVER harmful to humans
+  never-harm-players: true
+
+  # If attacked by a player, raccoons will flee instead of retaliating
+  flee-from-players-when-attacked: true
+
+  # Plays water splash & washing effects when raccoons eat near water
+  wash-food-in-water: true
+
+  # Raccoons investigate and sniff containers (composters, chests, barrels, cauldrons)
+  rummage-containers: true
+
+  # Allows raccoons to pick up dropped food items from the ground
+  pick-up-items: true
+
+  # Foods that players can use to feed and bond with raccoons
+  favorite-foods:
+    - SWEET_BERRIES
+    - GLOW_BERRIES
+    - APPLE
+    - BREAD
+    - COOKIE
+    - COD
+    - SALMON
+    - COOKED_COD
+    - COOKED_SALMON
+    - CHICKEN
+    - COOKED_CHICKEN
+    - RABBIT
+    - COOKED_RABBIT
+    - GOLDEN_CARROT
+
+# Hunting prey settings
+hunting:
+  # When true, raccoons hunt all living non-human animals (Chicken, Pig, Cow, Sheep, Rabbit, etc.)
+  target-all-animals: true
+
+  # Specific list used when target-all-animals is false
+  allowed-prey:
+    - CHICKEN
+    - RABBIT
+    - PIG
+    - SHEEP
+    - COW
+    - FOX
+    - CAT
+    - FROG
+    - TURTLE
+    - SNIFFER
+    - GOAT
+    - PANDA
+    - PARROT
+    - BAT
