@@ -24,6 +24,8 @@ public class RaccoonMod {
     private static void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(RaccoonItems.RACCOON_SPAWN_EGG);
+        } else if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(RaccoonItems.TRASH);
         }
     }
 }

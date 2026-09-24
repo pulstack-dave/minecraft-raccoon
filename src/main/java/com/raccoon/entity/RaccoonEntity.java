@@ -2,6 +2,7 @@ package com.raccoon.entity;
 
 import com.raccoon.entity.ai.RaccoonBegGoal;
 import com.raccoon.entity.ai.RaccoonWashGoal;
+import com.raccoon.item.RaccoonItems;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -109,7 +110,8 @@ public class RaccoonEntity extends TamableAnimal {
                 || stack.is(Items.BREAD)
                 || stack.is(Items.COD)
                 || stack.is(Items.SALMON)
-                || stack.is(Items.APPLE), false));
+                || stack.is(Items.APPLE)
+                || stack.is(RaccoonItems.TRASH.get()), false));
         this.goalSelector.addGoal(9, new FollowParentGoal(this, 1.1));
         this.goalSelector.addGoal(10, new WaterAvoidingRandomStrollGoal(this, 1.0));
         this.goalSelector.addGoal(11, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -138,7 +140,8 @@ public class RaccoonEntity extends TamableAnimal {
                 || item == Items.COOKED_CHICKEN
                 || item == Items.RABBIT
                 || item == Items.COOKED_RABBIT
-                || item == Items.GOLDEN_CARROT;
+                || item == Items.GOLDEN_CARROT
+                || item == RaccoonItems.TRASH.get();
     }
 
     @Override

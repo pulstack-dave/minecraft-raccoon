@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "minecraft:poisonous_potato",
+    "minecraft:poisonous_potato",
+    "minecraft:rotten_flesh",
+    "minecraft:spider_eye"
+  ],
+  "result": {
+    "id": "raccoon:trash",
+    "count": 1
+  }
+}
