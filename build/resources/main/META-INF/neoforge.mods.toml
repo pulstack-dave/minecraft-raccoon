@@ -13,13 +13,13 @@ description='''Adds tameable raccoons. Spawn them from a creative spawn egg, tam
 [[dependencies.raccoon]]
 modId="neoforge"
 type="required"
-versionRange="[21.1.0,21.2)"
+versionRange="[21.1.0,22.0)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.raccoon]]
 modId="minecraft"
 type="required"
-versionRange="[1.21.1,1.21.2)"
+versionRange="[1.21.1,1.21.9)"
 ordering="NONE"
 side="BOTH"
