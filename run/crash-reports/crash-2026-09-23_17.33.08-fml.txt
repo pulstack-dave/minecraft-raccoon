@@ -1,0 +1,129 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 2026-09-23 17:33:08
+Description: Mod loading failures have occurred; consult the issue messages for more details
+
+net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Stacktrace:
+	at java.base/sun.nio.fs.LinuxWatchService.<init>(LinuxWatchService.java:62) ~[?:?] {}
+-- Mod loading issue --
+Details:
+	Caused by 0: com.electronwill.nightconfig.core.file.FileWatcher$WatchingException: Failed to watch path '/home/code/IdeaProjects/minecraft-raccoon/run/config/neoforge-common.toml', canonical path '/home/code/IdeaProjects/minecraft-raccoon/run/config/neoforge-common.toml'
+		at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.addOrPutWatch(FileWatcher.java:290) ~[core-3.8.3.jar%2366!/:?] {}
+		at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.addWatch(FileWatcher.java:168) ~[core-3.8.3.jar%2366!/:?] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.openConfig(ConfigTracker.java:144) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.lambda$loadConfigs$2(ConfigTracker.java:124) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+		at java.base/java.util.Collections$SynchronizedCollection.forEach(Collections.java:2352) ~[?:?] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.loadConfigs(ConfigTracker.java:124) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.loadConfigs(ConfigTracker.java:119) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at TRANSFORMER/neoforge@21.1.251/net.neoforged.neoforge.internal.CommonModLoader.lambda$begin$1(CommonModLoader.java:64) ~[neoforge-21.1.251.jar%23126!/:?] {re:classloading}
+		at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?] {}
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?] {}
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?] {}
+
+	Caused by 1: com.electronwill.nightconfig.core.file.FileWatcher$WatchingException: Failed to start a new watcher thread for directory /home/code/IdeaProjects/minecraft-raccoon/run/config
+		at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.lambda$addOrPutWatch$1(FileWatcher.java:284) ~[core-3.8.3.jar%2366!/:?] {}
+		at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[?:?] {}
+		at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.addOrPutWatch(FileWatcher.java:273) ~[core-3.8.3.jar%2366!/:?] {}
+		at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.addWatch(FileWatcher.java:168) ~[core-3.8.3.jar%2366!/:?] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.openConfig(ConfigTracker.java:144) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.lambda$loadConfigs$2(ConfigTracker.java:124) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+		at java.base/java.util.Collections$SynchronizedCollection.forEach(Collections.java:2352) ~[?:?] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.loadConfigs(ConfigTracker.java:124) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.loadConfigs(ConfigTracker.java:119) ~[loader-4.0.44.jar%23102!/:4.0] {}
+		at TRANSFORMER/neoforge@21.1.251/net.neoforged.neoforge.internal.CommonModLoader.lambda$begin$1(CommonModLoader.java:64) ~[neoforge-21.1.251.jar%23126!/:?] {re:classloading}
+		at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+		at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?] {}
+		at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?] {}
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?] {}
+
+	Mod file: <No mod information provided>
+	Failure message: An uncaught parallel processing error has occurred.
+		com.electronwill.nightconfig.core.file.FileWatcher$WatchingException: Failed to watch path '/home/code/IdeaProjects/minecraft-raccoon/run/config/neoforge-common.toml', canonical path '/home/code/IdeaProjects/minecraft-raccoon/run/config/neoforge-common.toml'
+	Mod version: <No mod information provided>
+	Mod issues URL: <No issues URL found>
+	Exception message: java.io.IOException: User limit of inotify instances reached or too many open files
+Stacktrace:
+	at java.base/sun.nio.fs.LinuxWatchService.<init>(LinuxWatchService.java:62) ~[?:?] {}
+	at java.base/sun.nio.fs.LinuxFileSystem.newWatchService(LinuxFileSystem.java:53) ~[?:?] {}
+	at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.lambda$addOrPutWatch$1(FileWatcher.java:276) ~[core-3.8.3.jar%2366!/:?] {}
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[?:?] {}
+	at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.addOrPutWatch(FileWatcher.java:273) ~[core-3.8.3.jar%2366!/:?] {}
+	at MC-BOOTSTRAP/com.electronwill.nightconfig.core@3.8.3/com.electronwill.nightconfig.core.file.FileWatcher.addWatch(FileWatcher.java:168) ~[core-3.8.3.jar%2366!/:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.openConfig(ConfigTracker.java:144) ~[loader-4.0.44.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.lambda$loadConfigs$2(ConfigTracker.java:124) ~[loader-4.0.44.jar%23102!/:4.0] {}
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+	at java.base/java.util.Collections$SynchronizedCollection.forEach(Collections.java:2352) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.loadConfigs(ConfigTracker.java:124) ~[loader-4.0.44.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.44/net.neoforged.fml.config.ConfigTracker.loadConfigs(ConfigTracker.java:119) ~[loader-4.0.44.jar%23102!/:4.0] {}
+	at TRANSFORMER/neoforge@21.1.251/net.neoforged.neoforge.internal.CommonModLoader.lambda$begin$1(CommonModLoader.java:64) ~[neoforge-21.1.251.jar%23126!/:?] {re:classloading}
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?] {}
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?] {}
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.1
+	Minecraft Version ID: 1.21.1
+	Operating System: Linux (amd64) version 7.0.0-31-generic
+	Java Version: 21.0.12.1, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 258860160 bytes (246 MiB) / 469762048 bytes (448 MiB) up to 8174698496 bytes (7796 MiB)
+	CPUs: 16
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) Ultra 9 386H
+	Identifier: Intel64 Family 6 Model 204 Stepping 2
+	Microarchitecture: unknown
+	Frequency (GHz): 5.00
+	Number of physical packages: 1
+	Number of physical CPUs: 16
+	Number of logical CPUs: 16
+	Graphics card #0 name: Panther Lake [Intel Graphics]
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MiB): 272.00
+	Graphics card #0 deviceId: 0xb0a0
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MiB): 23779.18
+	Virtual memory used (MiB): 25868.61
+	Swap memory total (MiB): 8192.00
+	Swap memory used (MiB): 2957.44
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 15013.64, total: 15587.18
+	Space in storage for workdir (MiB): available: 688935.50, total: 959270.44
+	JVM Flags: 0 total; 
+	ModLauncher: 11.0.5+main.901c6ea8
+	ModLauncher launch target: forgeserverdev
+	ModLauncher services: 
+		sponge-mixin-0.15.2+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-4.0.44.jar slf4jfixer PLUGINSERVICE 
+		loader-4.0.44.jar runtime_enum_extender PLUGINSERVICE 
+		at-modlauncher-10.0.1.jar accesstransformer PLUGINSERVICE 
+		loader-4.0.44.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-11.0.5.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-11.0.5.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@4.0
+		lowcodefml@4.0
+		minecraft@4.0
+	Mod List: 
+		neoforge-21.1.251.jar                             |Minecraft                     |minecraft                     |1.21.1              |Manifest: NOSIGNATURE
+		main                                              |Minecraft Raccoon             |raccoon                       |1.1.0               |Manifest: NOSIGNATURE
+		neoforge-21.1.251.jar                             |NeoForge                      |neoforge                      |21.1.251            |Manifest: NOSIGNATURE
+	Crash Report UUID: 7ffbe4fb-869f-4652-b517-ddb54f0b86a8
+	FML: 4.0.44
+	NeoForge: 21.1.251
