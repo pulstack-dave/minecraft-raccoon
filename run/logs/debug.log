@@ -1,60 +1,71 @@
-[23Sep2026 18:22:02.907] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, neoforgeserverdev, --fml.fmlVersion, 9.0.18, --fml.mcVersion, 1.21.8, --fml.neoForgeVersion, 21.8.53, --fml.neoFormVersion, 20250717.133445, --nogui]
-[23Sep2026 18:22:02.908] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
-[23Sep2026 18:22:02.909] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 9.0 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Linux arch amd64 version 7.0.0-31-generic
-[23Sep2026 18:22:02.956] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is neoforgeserverdev
-[23Sep2026 18:22:02.973] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/code/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23111!/ Service=ModLauncher Env=SERVER
-[23Sep2026 18:22:03.144] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
-[23Sep2026 18:22:03.145] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+[23Sep2026 18:33:07.023] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, neoforgeserverdev, --fml.fmlVersion, 9.0.18, --fml.mcVersion, 1.21.8, --fml.neoForgeVersion, 21.8.53, --fml.neoFormVersion, 20250717.133445, --nogui]
+[23Sep2026 18:33:07.025] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.12.1+1-LTS
+[23Sep2026 18:33:07.025] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 9.0 starting: java version 21.0.12.1 by Eclipse Adoptium; OS Linux arch amd64 version 7.0.0-31-generic
+[23Sep2026 18:33:07.078] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is neoforgeserverdev
+[23Sep2026 18:33:07.096] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/code/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%23111!/ Service=ModLauncher Env=SERVER
+[23Sep2026 18:33:07.282] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[23Sep2026 18:33:07.283] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
      Mod List:
 		Name Version (Mod Id)
 
 		Minecraft 1.21.8 (minecraft)
-		Minecraft Raccoon 1.2.1 (raccoon)
+		Minecraft Raccoon 1.2.2 (raccoon)
 		NeoForge 21.8.53 (neoforge)
-[23Sep2026 18:22:03.435] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'neoforgeserverdev' with arguments [--nogui]
-[23Sep2026 18:22:04.033] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
-[23Sep2026 18:22:06.933] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[23Sep2026 18:22:06.934] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[23Sep2026 18:22:06.936] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[23Sep2026 18:22:06.937] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[23Sep2026 18:22:06.937] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[23Sep2026 18:22:06.938] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [waypoint, modify, waypoint, color, reset] and [waypoint, modify, waypoint, color, color] with inputs: [reset]
-[23Sep2026 18:22:06.967] [modloading-worker-0/INFO] [raccoon/]: Initializing Minecraft Raccoon mod
-[23Sep2026 18:22:06.980] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.8.53, for MC 1.21.8
-[23Sep2026 18:22:07.295] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[23Sep2026 18:22:07.509] [main/WARN] [net.neoforged.neoforge.common.CommonHooks/WP]: The following mods have version differences that were not resolved:
-neoforge (version 21.1.251 -> 21.8.53)
-raccoon (version 1.1.0 -> 1.2.1)
+[23Sep2026 18:33:07.595] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'neoforgeserverdev' with arguments [--nogui]
+[23Sep2026 18:33:08.194] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[23Sep2026 18:33:11.065] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23Sep2026 18:33:11.067] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23Sep2026 18:33:11.069] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23Sep2026 18:33:11.069] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[23Sep2026 18:33:11.070] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[23Sep2026 18:33:11.071] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [waypoint, modify, waypoint, color, reset] and [waypoint, modify, waypoint, color, color] with inputs: [reset]
+[23Sep2026 18:33:11.099] [modloading-worker-0/INFO] [raccoon/]: Initializing Minecraft Raccoon mod
+[23Sep2026 18:33:11.114] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.8.53, for MC 1.21.8
+[23Sep2026 18:33:11.318] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23Sep2026 18:33:11.356] [main/WARN] [net.neoforged.neoforge.common.CommonHooks/WP]: The following mods have version differences that were not resolved:
+raccoon (version 1.2.1 -> 1.2.2)
 Things may not work well.
-[23Sep2026 18:22:07.519] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/code/IdeaProjects/minecraft-raccoon/build/moddev/artifacts/neoforge-21.8.53.jar%23146!/assets/.mcassetsroot' uses unexpected schema
-[23Sep2026 18:22:07.520] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/code/IdeaProjects/minecraft-raccoon/build/moddev/artifacts/neoforge-21.8.53.jar%23146!/data/.mcassetsroot' uses unexpected schema
-[23Sep2026 18:22:08.176] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1408 recipes
-[23Sep2026 18:22:08.182] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1520 advancements
-[23Sep2026 18:22:08.183] [main/INFO] [net.neoforged.neoforge.common.crafting.RecipePriorityManager/]: Loaded 0 recipe priority overrides
-[23Sep2026 18:22:08.265] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting minecraft server version 1.21.8
-[23Sep2026 18:22:08.266] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Loading properties
-[23Sep2026 18:22:08.266] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Default game type: SURVIVAL
-[23Sep2026 18:22:08.266] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[23Sep2026 18:22:08.408] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting Minecraft server on *:25565
-[23Sep2026 18:22:08.443] [Server thread/INFO] [net.minecraft.server.network.ServerConnectionListener/]: Using epoll channel type
-[23Sep2026 18:22:08.467] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[23Sep2026 18:22:08.467] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: The server will make no attempt to authenticate usernames. Beware.
-[23Sep2026 18:22:08.467] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[23Sep2026 18:22:08.468] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: To change this, set "online-mode" to "true" in the server.properties file.
-[23Sep2026 18:22:08.504] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Preparing level "world"
-[23Sep2026 18:22:08.669] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[23Sep2026 18:22:09.317] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[23Sep2026 18:22:09.318] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[23Sep2026 18:22:09.383] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 714 ms
-[23Sep2026 18:22:09.384] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (0.905s)! For help, type "help"
-[23Sep2026 18:22:09.414] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
-[23Sep2026 18:22:22.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[23Sep2026 18:22:22.070] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[23Sep2026 18:22:22.071] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[23Sep2026 18:22:22.296] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[23Sep2026 18:22:22.317] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[23Sep2026 18:22:22.319] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[23Sep2026 18:22:22.327] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[23Sep2026 18:22:22.328] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[23Sep2026 18:22:22.328] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[23Sep2026 18:22:22.328] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[23Sep2026 18:33:11.364] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/code/IdeaProjects/minecraft-raccoon/build/moddev/artifacts/neoforge-21.8.53.jar%23146!/assets/.mcassetsroot' uses unexpected schema
+[23Sep2026 18:33:11.365] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/code/IdeaProjects/minecraft-raccoon/build/moddev/artifacts/neoforge-21.8.53.jar%23146!/data/.mcassetsroot' uses unexpected schema
+[23Sep2026 18:33:12.048] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 1408 recipes
+[23Sep2026 18:33:12.057] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1520 advancements
+[23Sep2026 18:33:12.058] [main/INFO] [net.neoforged.neoforge.common.crafting.RecipePriorityManager/]: Loaded 0 recipe priority overrides
+[23Sep2026 18:33:12.132] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting minecraft server version 1.21.8
+[23Sep2026 18:33:12.133] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Loading properties
+[23Sep2026 18:33:12.133] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Default game type: SURVIVAL
+[23Sep2026 18:33:12.133] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[23Sep2026 18:33:12.181] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting Minecraft server on *:25565
+[23Sep2026 18:33:12.218] [Server thread/INFO] [net.minecraft.server.network.ServerConnectionListener/]: Using epoll channel type
+[23Sep2026 18:33:12.243] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[23Sep2026 18:33:12.243] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: The server will make no attempt to authenticate usernames. Beware.
+[23Sep2026 18:33:12.243] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[23Sep2026 18:33:12.244] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: To change this, set "online-mode" to "true" in the server.properties file.
+[23Sep2026 18:33:12.282] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Preparing level "world"
+[23Sep2026 18:33:12.513] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[23Sep2026 18:33:13.026] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[23Sep2026 18:33:13.027] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[23Sep2026 18:33:13.079] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 565 ms
+[23Sep2026 18:33:13.079] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (0.828s)! For help, type "help"
+[23Sep2026 18:33:13.079] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting remote control listener
+[23Sep2026 18:33:13.082] [Server thread/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Listener started
+[23Sep2026 18:33:13.082] [Server thread/INFO] [net.minecraft.server.rcon.thread.RconThread/]: RCON running on 0.0.0.0:25575
+[23Sep2026 18:33:13.107] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[23Sep2026 18:33:21.572] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[23Sep2026 18:33:21.595] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Summoned new Raccoon]
+[23Sep2026 18:33:26.606] [RCON Client /127.0.0.1 #2/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[23Sep2026 18:34:02.034] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[23Sep2026 18:34:05.955] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Marked chunk [0, 0] in Overworld to be force loaded]
+[23Sep2026 18:34:06.257] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Summoned new Raccoon]
+[23Sep2026 18:34:06.568] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Raccoon to 8.500000, 200.000000, 8.500000]
+[23Sep2026 18:34:11.485] [RCON Client /127.0.0.1 #3/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[23Sep2026 18:34:23.761] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[23Sep2026 18:34:23.763] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[23Sep2026 18:34:23.763] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[23Sep2026 18:34:24.973] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[23Sep2026 18:34:24.992] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[23Sep2026 18:34:24.995] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[23Sep2026 18:34:25.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[23Sep2026 18:34:25.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[23Sep2026 18:34:25.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[23Sep2026 18:34:25.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[23Sep2026 18:34:25.019] [Server thread/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Listener stopped
