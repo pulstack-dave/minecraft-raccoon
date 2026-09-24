@@ -20,15 +20,15 @@ A mod compiled for one Minecraft version cannot also run on 1.21.1 or 1.21.4. Th
 
 1. Build or copy this jar:
    ```text
-   build/libs/minecraft-raccoon-1.2.0.jar
+   build/libs/minecraft-raccoon-1.2.1.jar
    ```
 2. Put that single file in the instance mods folder. For Enhanced MC this is the mods folder of that NeoForge instance, not a Fabric profile.
-3. Remove any older `minecraft-raccoon` jar, including `1.0.0` and `1.1.0`. Leaving more than one in the folder will conflict.
+3. Remove every older `minecraft-raccoon` jar, including `1.0.0`, `1.1.0`, and any earlier `1.2.0`. A jar that still references `DeferredSpawnEggItem` crashes on NeoForge 21.8, because that class was removed. Leaving more than one jar in the folder will keep loading the broken one.
 4. Launch the NeoForge profile.
 
 ```text
 mods/
-└── minecraft-raccoon-1.2.0.jar
+└── minecraft-raccoon-1.2.1.jar
 ```
 
 ---

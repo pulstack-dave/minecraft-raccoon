@@ -219,7 +219,7 @@ public class RaccoonEntity extends TamableAnimal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob partner) {
-        RaccoonEntity baby = RaccoonEntities.RACCOON_TYPE.create(level, EntitySpawnReason.BREEDING);
+        RaccoonEntity baby = RaccoonEntities.RACCOON.get().create(level, EntitySpawnReason.BREEDING);
         if (baby != null && this.isTame()) {
             var owner = this.getOwnerReference();
             if (owner != null) {

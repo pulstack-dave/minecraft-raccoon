@@ -10,5 +10,5 @@ public class RaccoonItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RaccoonMod.MOD_ID);
 
     public static final DeferredItem<SpawnEggItem> RACCOON_SPAWN_EGG = ITEMS.registerItem("raccoon_spawn_egg",
-            properties -> new SpawnEggItem(RaccoonEntities.RACCOON_TYPE, properties));
+            properties -> new SpawnEggItem(RaccoonEntities.RACCOON.get(), properties));
 }

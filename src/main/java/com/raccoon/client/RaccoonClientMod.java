@@ -19,6 +19,6 @@ public class RaccoonClientMod {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(RaccoonEntities.RACCOON_TYPE, RaccoonEntityRenderer::new);
+        event.registerEntityRenderer(RaccoonEntities.RACCOON.get(), RaccoonEntityRenderer::new);
     }
 }

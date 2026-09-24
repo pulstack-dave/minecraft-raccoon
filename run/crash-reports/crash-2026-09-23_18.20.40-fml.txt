@@ -1,0 +1,116 @@
+---- Minecraft Crash Report ----
+// I blame Dinnerbone.
+
+Time: 2026-09-23 18:20:40
+Description: Mod loading failures have occurred; consult the issue messages for more details
+
+net.neoforged.neoforge.logging.CrashReportExtender$ModLoadingCrashException: Mod loading has failed
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.8/net.minecraft.core.MappedRegistry.validateWrite(MappedRegistry.java:76) ~[neoforge-21.8.53.jar%23146!/:?] {re:classloading,pl:mixin:A}
+-- Mod loading issue for: raccoon --
+Details:
+	Caused by 0: java.lang.ExceptionInInitializerError
+		at TRANSFORMER/raccoon@1.2.1/com.raccoon.RaccoonMod.<init>(RaccoonMod.java:19) ~[%23148!/:?] {re:classloading}
+		at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?] {}
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?] {}
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?] {}
+		at MC-BOOTSTRAP/fml_loader@9.0.18/net.neoforged.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:118) ~[loader-9.0.18.jar%23121!/:9.0] {}
+		at MC-BOOTSTRAP/fml_loader@9.0.18/net.neoforged.fml.ModLoader.lambda$constructMods$3(ModLoader.java:151) ~[loader-9.0.18.jar%23121!/:9.0] {}
+		at MC-BOOTSTRAP/fml_loader@9.0.18/net.neoforged.fml.ModLoader.lambda$dispatchParallelTask$7(ModLoader.java:229) ~[loader-9.0.18.jar%23121!/:9.0] {}
+		at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?] {}
+		at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?] {}
+		at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:483) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) ~[?:?] {}
+		at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) ~[?:?] {}
+
+	Mod file: /home/code/IdeaProjects/minecraft-raccoon/build/classes/java/main/
+	Failure message: Minecraft Raccoon (raccoon) has failed to load correctly
+		java.lang.ExceptionInInitializerError: null
+	Mod version: 1.2.1
+	Mod issues URL: <No issues URL found>
+	Exception message: java.lang.IllegalStateException: Registry is already frozen
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.8/net.minecraft.core.MappedRegistry.validateWrite(MappedRegistry.java:76) ~[neoforge-21.8.53.jar%23146!/:?] {re:classloading,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.8/net.minecraft.core.MappedRegistry.createIntrusiveHolder(MappedRegistry.java:347) ~[neoforge-21.8.53.jar%23146!/:?] {re:classloading,pl:mixin:A}
+	at TRANSFORMER/minecraft@1.21.8/net.minecraft.world.entity.EntityType.<init>(EntityType.java:184) ~[neoforge-21.8.53.jar%23146!/:?] {re:classloading,xf:fml:default}
+	at TRANSFORMER/minecraft@1.21.8/net.minecraft.world.entity.EntityType$Builder.build(EntityType.java:1690) ~[neoforge-21.8.53.jar%23146!/:?] {re:classloading}
+	at TRANSFORMER/raccoon@1.2.1/com.raccoon.entity.RaccoonEntities.<clinit>(RaccoonEntities.java:22) ~[%23148!/:?] {re:classloading}
+	at TRANSFORMER/raccoon@1.2.1/com.raccoon.RaccoonMod.<init>(RaccoonMod.java:19) ~[%23148!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?] {}
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?] {}
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.18/net.neoforged.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:118) ~[loader-9.0.18.jar%23121!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.18/net.neoforged.fml.ModLoader.lambda$constructMods$3(ModLoader.java:151) ~[loader-9.0.18.jar%23121!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.18/net.neoforged.fml.ModLoader.lambda$dispatchParallelTask$7(ModLoader.java:229) ~[loader-9.0.18.jar%23121!/:9.0] {}
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934) ~[?:?] {}
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911) ~[?:?] {}
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:483) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) ~[?:?] {}
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.8
+	Minecraft Version ID: 1.21.8
+	Operating System: Linux (amd64) version 7.0.0-31-generic
+	Java Version: 21.0.12.1, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 132682184 bytes (126 MiB) / 436207616 bytes (416 MiB) up to 8174698496 bytes (7796 MiB)
+	CPUs: 16
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) Ultra 9 386H
+	Identifier: Intel64 Family 6 Model 204 Stepping 2
+	Microarchitecture: unknown
+	Frequency (GHz): 5.00
+	Number of physical packages: 1
+	Number of physical CPUs: 16
+	Number of logical CPUs: 16
+	Graphics card #0 name: Panther Lake [Intel Graphics]
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MiB): 272.00
+	Graphics card #0 deviceId: 0xb0a0
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MiB): 23779.18
+	Virtual memory used (MiB): 25501.53
+	Swap memory total (MiB): 8192.00
+	Swap memory used (MiB): 6969.04
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 14996.46, total: 15587.18
+	Space in storage for workdir (MiB): available: 687820.13, total: 959270.44
+	JVM Flags: 0 total; 
+	ModLauncher: 9.0
+	ModLauncher launch target: neoforgeserverdev
+	ModLauncher services: 
+		sponge-mixin-0.15.2+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-9.0.18.jar neoforgedevdistcleaner PLUGINSERVICE 
+		loader-9.0.18.jar slf4jfixer PLUGINSERVICE 
+		loader-9.0.18.jar runtime_enum_extender PLUGINSERVICE 
+		loader-9.0.18.jar accesstransformer PLUGINSERVICE 
+		loader-9.0.18.jar mixin TRANSFORMATIONSERVICE 
+		loader-9.0.18.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@9.0
+		minecraft@9.0
+	Mod List: 
+		neoforge-21.8.53.jar                              |Minecraft                     |minecraft                     |1.21.8              |Manifest: NOSIGNATURE
+		main                                              |Minecraft Raccoon             |raccoon                       |1.2.1               |Manifest: NOSIGNATURE
+		neoforge-21.8.53.jar                              |NeoForge                      |neoforge                      |21.8.53             |Manifest: NOSIGNATURE
+	Crash Report UUID: 5bc4e7ab-e72e-4444-a5c0-05ac9cdb6e1f
+	FML: 9.0.18
+	NeoForge: 21.8.53
