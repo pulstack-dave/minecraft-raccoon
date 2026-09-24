@@ -2,7 +2,6 @@ package com.raccoon.entity;
 
 import com.raccoon.entity.ai.RaccoonBegGoal;
 import com.raccoon.entity.ai.RaccoonWashGoal;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -12,6 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
@@ -37,11 +37,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.UUID;
 
 public class RaccoonEntity extends TamableAnimal {
     private static final EntityDataAccessor<Boolean> STANDING = SynchedEntityData.defineId(RaccoonEntity.class, EntityDataSerializers.BOOLEAN);
@@ -67,17 +66,17 @@ public class RaccoonEntity extends TamableAnimal {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putBoolean("Standing", this.isStanding());
-        tag.putBoolean("Washing", this.isWashing());
+    public void addAdditionalSaveData(ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putBoolean("Standing", this.isStanding());
+        output.putBoolean("Washing", this.isWashing());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        this.setStanding(tag.getBoolean("Standing"));
-        this.setWashing(tag.getBoolean("Washing"));
+    public void readAdditionalSaveData(ValueInput input) {
+        super.readAdditionalSaveData(input);
+        this.setStanding(input.getBooleanOr("Standing", false));
+        this.setWashing(input.getBooleanOr("Washing", false));
     }
 
     public boolean isStanding() {
@@ -105,9 +104,12 @@ public class RaccoonEntity extends TamableAnimal {
         this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1.2, true));
         this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.15, 10.0F, 2.0F));
         this.goalSelector.addGoal(7, new BreedGoal(this, 1.0));
-        this.goalSelector.addGoal(8, new TemptGoal(this, 1.1, Ingredient.of(
-                Items.SWEET_BERRIES, Items.GLOW_BERRIES, Items.BREAD, Items.COD, Items.SALMON, Items.APPLE
-        ), false));
+        this.goalSelector.addGoal(8, new TemptGoal(this, 1.1, stack -> stack.is(Items.SWEET_BERRIES)
+                || stack.is(Items.GLOW_BERRIES)
+                || stack.is(Items.BREAD)
+                || stack.is(Items.COD)
+                || stack.is(Items.SALMON)
+                || stack.is(Items.APPLE), false));
         this.goalSelector.addGoal(9, new FollowParentGoal(this, 1.1));
         this.goalSelector.addGoal(10, new WaterAvoidingRandomStrollGoal(this, 1.0));
         this.goalSelector.addGoal(11, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -116,8 +118,8 @@ public class RaccoonEntity extends TamableAnimal {
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setAlertOthers());
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Chicken.class, false, target -> !this.isTame()));
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Rabbit.class, false, target -> !this.isTame()));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Chicken.class, 10, false, false, (target, level) -> !this.isTame()));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Rabbit.class, 10, false, false, (target, level) -> !this.isTame()));
     }
 
     public boolean isFavoriteFood(ItemStack stack) {
@@ -160,7 +162,7 @@ public class RaccoonEntity extends TamableAnimal {
                         stack.shrink(1);
                     }
                     this.heal(4.0F);
-                    this.playSound(SoundEvents.GENERIC_EAT, 1.0F, 1.0F);
+                    this.playSound(SoundEvents.GENERIC_EAT.value(), 1.0F, 1.0F);
                     this.level().broadcastEntityEvent(this, (byte) 7);
                     return InteractionResult.SUCCESS;
                 }
@@ -170,7 +172,7 @@ public class RaccoonEntity extends TamableAnimal {
                         stack.shrink(1);
                     }
                     this.setInLove(player);
-                    this.playSound(SoundEvents.GENERIC_EAT, 1.0F, 1.0F);
+                    this.playSound(SoundEvents.GENERIC_EAT.value(), 1.0F, 1.0F);
                     this.level().broadcastEntityEvent(this, (byte) 7);
                     return InteractionResult.SUCCESS;
                 }
@@ -186,7 +188,7 @@ public class RaccoonEntity extends TamableAnimal {
             if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
             }
-            this.playSound(SoundEvents.GENERIC_EAT, 1.0F, 1.0F);
+            this.playSound(SoundEvents.GENERIC_EAT.value(), 1.0F, 1.0F);
             if (this.random.nextInt(3) == 0) {
                 this.tame(player);
                 this.getNavigation().stop();
@@ -217,11 +219,11 @@ public class RaccoonEntity extends TamableAnimal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob partner) {
-        RaccoonEntity baby = RaccoonEntities.RACCOON.get().create(level);
+        RaccoonEntity baby = RaccoonEntities.RACCOON_TYPE.create(level, EntitySpawnReason.BREEDING);
         if (baby != null && this.isTame()) {
-            UUID owner = this.getOwnerUUID();
+            var owner = this.getOwnerReference();
             if (owner != null) {
-                baby.setOwnerUUID(owner);
+                baby.setOwnerReference(owner);
                 baby.setTame(true, true);
             }
         }

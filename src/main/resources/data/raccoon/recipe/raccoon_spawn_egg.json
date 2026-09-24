@@ -2,22 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:egg"
-    },
-    {
-      "item": "minecraft:sweet_berries"
-    },
-    {
-      "item": "minecraft:bread"
-    },
+    "minecraft:egg",
+    "minecraft:sweet_berries",
+    "minecraft:bread",
     [
-      {
-        "item": "minecraft:cod"
-      },
-      {
-        "item": "minecraft:salmon"
-      }
+      "minecraft:cod",
+      "minecraft:salmon"
     ]
   ],
   "result": {

@@ -1,7 +1,7 @@
 package com.raccoon.client.model;
 
-import com.raccoon.entity.RaccoonEntity;
-import net.minecraft.client.model.HierarchicalModel;
+import com.raccoon.client.render.RaccoonRenderState;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
@@ -10,7 +10,7 @@ import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
 
-public class RaccoonEntityModel<T extends RaccoonEntity> extends HierarchicalModel<T> {
+public class RaccoonEntityModel extends EntityModel<RaccoonRenderState> {
     private final ModelPart root;
     private final ModelPart body;
     private final ModelPart head;
@@ -21,6 +21,7 @@ public class RaccoonEntityModel<T extends RaccoonEntity> extends HierarchicalMod
     private final ModelPart tail;
 
     public RaccoonEntityModel(ModelPart root) {
+        super(root);
         this.root = root;
         this.body = root.getChild("body");
         this.head = root.getChild("head");
@@ -71,18 +72,13 @@ public class RaccoonEntityModel<T extends RaccoonEntity> extends HierarchicalMod
     }
 
     @Override
-    public ModelPart root() {
-        return this.root;
-    }
-
-    @Override
-    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(RaccoonRenderState state) {
         this.resetPositions();
 
-        this.head.xRot = headPitch * ((float) Math.PI / 180F);
-        this.head.yRot = netHeadYaw * ((float) Math.PI / 180F);
+        this.head.xRot = state.xRot * ((float) Math.PI / 180F);
+        this.head.yRot = state.yRot * ((float) Math.PI / 180F);
 
-        if (entity.isInSittingPose() || entity.isOrderedToSit()) {
+        if (state.sitting) {
             this.body.y = 17.5F;
             this.body.z = 1.0F;
             this.body.xRot = -0.7853982F;
@@ -110,8 +106,8 @@ public class RaccoonEntityModel<T extends RaccoonEntity> extends HierarchicalMod
             this.leftFrontLeg.xRot = 0.55F;
 
             this.tail.xRot = 0.65F;
-            this.tail.yRot = Mth.cos(ageInTicks * 0.1F) * 0.15F;
-        } else if (entity.isStanding()) {
+            this.tail.yRot = Mth.cos(state.ageInTicks * 0.1F) * 0.15F;
+        } else if (state.standing) {
             this.body.y = 12.0F;
             this.body.z = 0.0F;
             this.body.xRot = -1.5707964F;
@@ -130,24 +126,26 @@ public class RaccoonEntityModel<T extends RaccoonEntity> extends HierarchicalMod
 
             this.rightFrontLeg.y = 9.0F;
             this.rightFrontLeg.z = -2.0F;
-            this.rightFrontLeg.xRot = -1.1F + Mth.cos(ageInTicks * 0.2F) * 0.08F;
+            this.rightFrontLeg.xRot = -1.1F + Mth.cos(state.ageInTicks * 0.2F) * 0.08F;
             this.rightFrontLeg.zRot = -0.2F;
 
             this.leftFrontLeg.y = 9.0F;
             this.leftFrontLeg.z = -2.0F;
-            this.leftFrontLeg.xRot = -1.1F - Mth.cos(ageInTicks * 0.2F) * 0.08F;
+            this.leftFrontLeg.xRot = -1.1F - Mth.cos(state.ageInTicks * 0.2F) * 0.08F;
             this.leftFrontLeg.zRot = 0.2F;
 
             this.tail.xRot = 1.35F;
-            this.tail.yRot = Mth.cos(ageInTicks * 0.1F) * 0.1F;
+            this.tail.yRot = Mth.cos(state.ageInTicks * 0.1F) * 0.1F;
         } else {
+            float limbSwing = state.walkAnimationPos;
+            float limbSwingAmount = state.walkAnimationSpeed;
             this.rightHindLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
             this.leftHindLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
             this.rightFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
             this.leftFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
             this.tail.xRot = -0.35F + Mth.cos(limbSwing * 0.4F) * 0.1F * limbSwingAmount;
-            this.tail.yRot = Mth.cos(ageInTicks * 0.12F) * 0.15F;
+            this.tail.yRot = Mth.cos(state.ageInTicks * 0.12F) * 0.15F;
         }
     }
 

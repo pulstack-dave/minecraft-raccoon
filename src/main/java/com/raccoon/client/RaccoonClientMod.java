@@ -10,7 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-@EventBusSubscriber(modid = RaccoonMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = RaccoonMod.MOD_ID, value = Dist.CLIENT)
 public class RaccoonClientMod {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -19,6 +19,6 @@ public class RaccoonClientMod {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(RaccoonEntities.RACCOON.get(), RaccoonEntityRenderer::new);
+        event.registerEntityRenderer(RaccoonEntities.RACCOON_TYPE, RaccoonEntityRenderer::new);
     }
 }

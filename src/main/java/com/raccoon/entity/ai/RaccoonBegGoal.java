@@ -1,17 +1,16 @@
 package com.raccoon.entity.ai;
 
 import com.raccoon.entity.RaccoonEntity;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 
 public class RaccoonBegGoal extends Goal {
     private final RaccoonEntity raccoon;
-    private final Level level;
+    private final ServerLevel level;
     private final float distance;
     private Player beggingPlayer;
     private int timer;
@@ -19,7 +18,7 @@ public class RaccoonBegGoal extends Goal {
 
     public RaccoonBegGoal(RaccoonEntity raccoon, float distance) {
         this.raccoon = raccoon;
-        this.level = raccoon.level();
+        this.level = getServerLevel(raccoon);
         this.distance = distance;
         this.validPlayerPredicate = TargetingConditions.forNonCombat().range(distance);
         this.setFlags(EnumSet.of(Flag.LOOK, Flag.MOVE));
@@ -64,11 +63,6 @@ public class RaccoonBegGoal extends Goal {
     }
 
     private boolean isHoldingFood(Player player) {
-        for (ItemStack stack : player.getHandSlots()) {
-            if (this.raccoon.isFavoriteFood(stack)) {
-                return true;
-            }
-        }
-        return false;
+        return this.raccoon.isFavoriteFood(player.getMainHandItem()) || this.raccoon.isFavoriteFood(player.getOffhandItem());
     }
 }
