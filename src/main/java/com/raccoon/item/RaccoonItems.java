@@ -2,24 +2,14 @@ package com.raccoon.item;
 
 import com.raccoon.RaccoonMod;
 import com.raccoon.entity.RaccoonEntities;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class RaccoonItems {
-    public static final Item RACCOON_SPAWN_EGG = Registry.register(
-            Registries.ITEM,
-            new Identifier(RaccoonMod.MOD_ID, "raccoon_spawn_egg"),
-            new SpawnEggItem(RaccoonEntities.RACCOON, 0x5C5856, 0x1E1E1E, new Item.Settings())
-    );
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RaccoonMod.MOD_ID);
 
-    public static void register() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
-            entries.add(RACCOON_SPAWN_EGG);
-        });
-    }
+    public static final DeferredItem<SpawnEggItem> RACCOON_SPAWN_EGG = ITEMS.register("raccoon_spawn_egg",
+            () -> new SpawnEggItem(RaccoonEntities.RACCOON.get(), 0x5C5856, 0x1E1E1E, new Item.Properties()));
 }

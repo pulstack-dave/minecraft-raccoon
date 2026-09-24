@@ -1,12 +1,10 @@
 package com.raccoon.client.model;
 
 import com.raccoon.RaccoonMod;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.resources.ResourceLocation;
 
-@Environment(EnvType.CLIENT)
 public class RaccoonModelLayers {
-    public static final EntityModelLayer RACCOON = new EntityModelLayer(new Identifier(RaccoonMod.MOD_ID, "raccoon"), "main");
+    public static final ModelLayerLocation RACCOON = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(RaccoonMod.MOD_ID, "raccoon"), "main");
 }

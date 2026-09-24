@@ -1,20 +1,24 @@
 package com.raccoon.client;
 
+import com.raccoon.RaccoonMod;
 import com.raccoon.client.model.RaccoonEntityModel;
 import com.raccoon.client.model.RaccoonModelLayers;
 import com.raccoon.client.render.RaccoonEntityRenderer;
 import com.raccoon.entity.RaccoonEntities;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-@Environment(EnvType.CLIENT)
-public class RaccoonClientMod implements ClientModInitializer {
-    @Override
-    public void onInitializeClient() {
-        EntityModelLayerRegistry.registerModelLayer(RaccoonModelLayers.RACCOON, RaccoonEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(RaccoonEntities.RACCOON, RaccoonEntityRenderer::new);
+@EventBusSubscriber(modid = RaccoonMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+public class RaccoonClientMod {
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(RaccoonModelLayers.RACCOON, RaccoonEntityModel::createBodyLayer);
+    }
+
+    @SubscribeEvent
+    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(RaccoonEntities.RACCOON.get(), RaccoonEntityRenderer::new);
     }
 }

@@ -1,45 +1,45 @@
 package com.raccoon.entity.ai;
 
 import com.raccoon.entity.RaccoonEntity;
-import net.minecraft.entity.ai.TargetPredicate;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 
 public class RaccoonBegGoal extends Goal {
     private final RaccoonEntity raccoon;
-    private final World world;
+    private final Level level;
     private final float distance;
-    private PlayerEntity beggingPlayer;
+    private Player beggingPlayer;
     private int timer;
-    private final TargetPredicate validPlayerPredicate;
+    private final TargetingConditions validPlayerPredicate;
 
     public RaccoonBegGoal(RaccoonEntity raccoon, float distance) {
         this.raccoon = raccoon;
-        this.world = raccoon.getWorld();
+        this.level = raccoon.level();
         this.distance = distance;
-        this.validPlayerPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(distance);
-        this.setControls(EnumSet.of(Control.LOOK, Control.MOVE));
+        this.validPlayerPredicate = TargetingConditions.forNonCombat().range(distance);
+        this.setFlags(EnumSet.of(Flag.LOOK, Flag.MOVE));
     }
 
     @Override
-    public boolean canStart() {
+    public boolean canUse() {
         if (this.raccoon.isInSittingPose()) {
             return false;
         }
-        this.beggingPlayer = this.world.getClosestPlayer(this.validPlayerPredicate, this.raccoon);
+        this.beggingPlayer = this.level.getNearestPlayer(this.validPlayerPredicate, this.raccoon);
         return this.beggingPlayer != null && this.isHoldingFood(this.beggingPlayer);
     }
 
     @Override
-    public boolean shouldContinue() {
+    public boolean canContinueToUse() {
         if (this.beggingPlayer == null || !this.beggingPlayer.isAlive()) {
             return false;
         }
-        if (this.raccoon.squaredDistanceTo(this.beggingPlayer) > (double)(this.distance * this.distance)) {
+        if (this.raccoon.distanceToSqr(this.beggingPlayer) > (double) (this.distance * this.distance)) {
             return false;
         }
         return this.timer > 0 && this.isHoldingFood(this.beggingPlayer);
@@ -59,12 +59,12 @@ public class RaccoonBegGoal extends Goal {
 
     @Override
     public void tick() {
-        this.raccoon.getLookControl().lookAt(this.beggingPlayer.getX(), this.beggingPlayer.getEyeY(), this.beggingPlayer.getZ(), 10.0F, (float)this.raccoon.getMaxLookPitchChange());
+        this.raccoon.getLookControl().setLookAt(this.beggingPlayer.getX(), this.beggingPlayer.getEyeY(), this.beggingPlayer.getZ(), 10.0F, (float) this.raccoon.getMaxHeadXRot());
         --this.timer;
     }
 
-    private boolean isHoldingFood(PlayerEntity player) {
-        for (ItemStack stack : player.getHandItems()) {
+    private boolean isHoldingFood(Player player) {
+        for (ItemStack stack : player.getHandSlots()) {
             if (this.raccoon.isFavoriteFood(stack)) {
                 return true;
             }

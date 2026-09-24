@@ -1,24 +1,27 @@
 package com.raccoon.entity;
 
 import com.raccoon.RaccoonMod;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
+@EventBusSubscriber(modid = RaccoonMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class RaccoonEntities {
-    public static final EntityType<RaccoonEntity> RACCOON = Registry.register(
-            Registries.ENTITY_TYPE,
-            new Identifier(RaccoonMod.MOD_ID, "raccoon"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RaccoonEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.6F, 0.7F))
-                    .build()
-    );
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, RaccoonMod.MOD_ID);
 
-    public static void register() {
-        // Ensures static initializer runs
+    public static final DeferredHolder<EntityType<?>, EntityType<RaccoonEntity>> RACCOON = ENTITY_TYPES.register("raccoon",
+            () -> EntityType.Builder.of(RaccoonEntity::new, MobCategory.CREATURE)
+                    .sized(0.6F, 0.7F)
+                    .clientTrackingRange(10)
+                    .build(RaccoonMod.MOD_ID + ":raccoon"));
+
+    @SubscribeEvent
+    public static void registerAttributes(EntityAttributeCreationEvent event) {
+        event.put(RACCOON.get(), RaccoonEntity.createAttributes().build());
     }
 }

@@ -1,26 +1,29 @@
 package com.raccoon;
 
 import com.raccoon.entity.RaccoonEntities;
-import com.raccoon.entity.RaccoonEntity;
 import com.raccoon.item.RaccoonItems;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RaccoonMod implements ModInitializer {
+@Mod(RaccoonMod.MOD_ID)
+public class RaccoonMod {
     public static final String MOD_ID = "raccoon";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    @Override
-    public void onInitialize() {
-        LOGGER.info("Initializing Minecraft Raccoon Mod...");
+    public RaccoonMod(IEventBus modEventBus) {
+        LOGGER.info("Initializing Minecraft Raccoon mod");
+        RaccoonEntities.ENTITY_TYPES.register(modEventBus);
+        RaccoonItems.ITEMS.register(modEventBus);
+        modEventBus.addListener(RaccoonMod::addCreative);
+    }
 
-        RaccoonEntities.register();
-        RaccoonItems.register();
-
-        FabricDefaultAttributeRegistry.register(RaccoonEntities.RACCOON, RaccoonEntity.createRaccoonAttributes());
-
-        LOGGER.info("Minecraft Raccoon Mod initialized successfully!");
+    private static void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(RaccoonItems.RACCOON_SPAWN_EGG);
+        }
     }
 }
